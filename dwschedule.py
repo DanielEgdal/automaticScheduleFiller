@@ -85,9 +85,8 @@ def wallinSchedule(data,stations):
 	schedule.sort(key=lambda x:x[1]) # Sort based on start time
 
 	daySplit = getDaySplit(schedule)
-	print(schedule,daySplit)
 
-	wb = load_workbook(filename = 'dwscheduleMar2023.xlsx') # open the schedule template
+	wb = load_workbook(filename = './dwscheduleMar2023.xlsx') # open the schedule template
 
 	sheet_names = wb.sheetnames
 	sch = wb[sheet_names[0]] # The interesting tab
