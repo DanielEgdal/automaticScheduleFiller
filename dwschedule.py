@@ -3,6 +3,7 @@ import pytz
 from datetime import time
 from collections import defaultdict
 from openpyxl import load_workbook
+import os
 
 def getDaySplit(schedule):
 	daySplit=[] # see when the schedule devides in two days. It doesn't work for more than 2 days.
@@ -86,7 +87,10 @@ def wallinSchedule(data,stations):
 
 	daySplit = getDaySplit(schedule)
 
-	wb = load_workbook(filename = './dwscheduleMar2023.xlsx') # open the schedule template
+	script_dir = os.path.dirname(os.path.abspath(__file__))
+	filename = os.path.join(script_dir, 'dwscheduleMar2023.xlsx')
+
+	wb = load_workbook(filename = filename) # open the schedule template
 
 	sheet_names = wb.sheetnames
 	sch = wb[sheet_names[0]] # The interesting tab
