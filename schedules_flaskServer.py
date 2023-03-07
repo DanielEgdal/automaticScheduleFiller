@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.update(
     SECRET_KEY = secret_key,
     SESSION_COOKIE_SECURE = True,
-    PERMANENT_SESSION_LIFETIME = 3600
+    PERMANENT_SESSION_LIFETIME = 7200
 )
 
 
