@@ -39,7 +39,7 @@ def wallinSchedule(data,stations):
 	mapping = {'222':'2x2','333':'3x3','444':'4x4','555':'5x5','666':'6x6','777':'7x7','sq1':'Square-1'
 	,'skewb':'Skewb','minx':'Megaminx', 'clock':'Clock','pyram':'Pyraminx','333oh':'3x3 OH','333fm':'3x3 FMC',
 	'333bf':'3x3 BLD','444bf':'4x4 BLD','555bf':'555 BLD','333mbf':'3x3 MBLD',
-	'tutorial':'Deltagarintroduktion','lunch':'Lunch','misc':'Städning','awards':'Prisutdelning','registration':'Registrering'}
+	'tutorial':'Deltagarintroduktion','lunch':'Lunch','misc':'Städning','awards':'Prisutdelning','registration':'Registrering', 'checkin':'Registrering'}
 
 	eventcount = defaultdict(int) # The amount of competitors per event
 
