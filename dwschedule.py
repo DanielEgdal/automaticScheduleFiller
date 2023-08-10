@@ -79,9 +79,11 @@ def wallinSchedule(data,stations):
 			ev = val['activityCode'].split('-')
 			if ev[0][0] != 'o':
 				ev = mapping[ev[0]] # Map event name
-			else:
-				ev=mapping[ev[1]] # Not an event or commonly known activity. This will throw an error, give it something of a potentially appropriate time
-
+			else: # Activities defined by user. (non events)
+				try: 
+					ev=mapping[ev[1]] 
+				except KeyError: # To avoid throwing an error, skip the activity
+					continue
 			schedule.append((ev,starttime,endtime))
 	schedule.sort(key=lambda x:x[1]) # Sort based on start time
 

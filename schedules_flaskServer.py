@@ -27,6 +27,10 @@ def give_name():
 def startPage():
     return render_template('index.html',user_name=session['name'])
 
+@app.route('/localhost')
+def localhost():
+    return redirect("https://www.worldcubeassociation.org/oauth/authorize?client_id=nROe6blTgcfHqubtsI_MaqUJSJBHd44lIpji-yFfLsw&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fshow_token&response_type=token&scope=manage_competitions+public")
+
 @app.route('/logout',methods=['GET','POST'])
 def logout():
     keys = [key for key in session.keys()]
@@ -85,7 +89,7 @@ def calculate(compid):
             if not session['canAdminComp']:
                 wcif,_ =  getWCIFPublic(session['compid'])
             # printingString = makeHtml(wcif)
-            return render_template("comp_settings.html")
+            return render_template("comp_settings.html",user_name=session['name'])
         else:
             return fail_string
     else:
@@ -115,7 +119,7 @@ def showCompetition():
 # app.run(debug=True)
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000,debug=True)
 
 
 # https://www.worldcubeassociation.org/api/v0/users/6777?upcoming_competitions=true&ongoing_competitions=true
